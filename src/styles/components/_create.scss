@@ -1,0 +1,47 @@
+$color1: #000000;
+$color2: #14213d;
+$color3: #fca311;
+$color4: #e5e5e5;
+$color5: #ffffff;
+
+.create{
+
+    margin: 5px;
+
+    h3{
+        color: #ffffff;
+        text-align: center;
+        font-size: 30px;
+    }
+    .form-input-app{
+        input{
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+        }
+        textarea{
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 20px;
+            border: 1px solid #e5e5e5;
+        }
+    }
+}
+.btn-create-app{
+    display: block;
+    width: 90%;
+    padding: 5px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #355070;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid #e5e5e5;
+}

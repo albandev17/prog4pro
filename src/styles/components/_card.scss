@@ -1,0 +1,66 @@
+.container-app{
+    max-width: 95%;
+    margin: 5px auto;
+    padding: 10px;
+
+    .card-app{
+        background: #ffffff;
+        border: 1px solid rgb(231, 231, 231);
+        padding: 10px;
+        border-radius: 20px;
+
+        .card-button-app{
+            display: flex;
+            justify-content: space-between;
+
+                .card-title-app{
+                    margin: 0 0 20px 0;
+                    color: #656666;
+                }
+                .card-title-app::after{
+                    content: '';
+                    display: block;
+                    background: #440be081;
+                    width: 35px;
+                    height: 2px;
+                    border-radius: 30px;
+                    margin-top: 3px;
+                }
+                .btn-update-app button{
+                    margin: 0 5px;
+                    padding: 2px;
+                    border: none;
+                    background: none;
+                    color: #fb6107;
+                }
+        }
+        .card-app-prog{
+            span{
+                text-align: center;
+                font-size: 8px;
+                color: #6c757d;
+                font-weight: bold;
+            }
+            p{
+                margin: 10px 0 20px 0;
+                white-space: pre-line;
+            }
+        }
+        .footer-card{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #eeecec;
+            color: #000000;
+            text-align: center;
+            padding-bottom: 5px;
+            border-radius: 30px;
+            padding: 13px;
+
+                span{
+                    font-size: 10px;
+                }
+        }
+    }
+}
