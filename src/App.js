@@ -17,7 +17,7 @@ const App = () => {
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
-      signInSuccess: () => false,
+      signInSuccessWithAuthResult: () => false,
     },
   };
 

@@ -23,6 +23,7 @@ const Progs = () => {
 
     return (
         <div>
+            <h3 className="title-home">Mes séances</h3>
             <ul>
                 {progList &&
                     progList.map((item, index) => (

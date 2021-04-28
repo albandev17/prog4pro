@@ -4,7 +4,7 @@ import { UidContext } from './UidContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 toast.configure();
@@ -15,6 +15,7 @@ const UpdateDelete = ({ item }) => {
     const [nameUpdate, setNameUpdate] = useState(null);
     const [contentUpdate, setContentUpdate] = useState(null);
     const [wodUpdate, setWodUpdate] = useState(null);
+    const [timeUpdate, setTimeUpdate] = useState(null);
 
     const uid = useContext(UidContext);
 
@@ -45,7 +46,11 @@ const UpdateDelete = ({ item }) => {
                 wod: wodUpdate,
             });
         }
-
+        if(timeUpdate !== null){
+            prog.update({
+                time: timeUpdate,
+            });
+        }
         setUpdate(false);
 
         const notifyUpdate = () => {
@@ -90,8 +95,7 @@ const UpdateDelete = ({ item }) => {
                             <div className="card-button-app">
                                 <p className="card-title-app">{item.name}</p>
                                 <div className="btn-update-app">
-                                    <button onClick={() => setUpdate(!update)}><FontAwesomeIcon icon={faPencilAlt} /></button>
-                                    <button onClick={deleteProg}><FontAwesomeIcon icon={faTrashAlt} /></button>
+                                    <p><FontAwesomeIcon icon={faClock} /> {item.time} min</p>
                                 </div>
                             </div>
                             <div className="card-app-prog">
@@ -100,6 +104,14 @@ const UpdateDelete = ({ item }) => {
                                 <span>W.O.D</span>
                                 <p className="card-wod-app">{item.wod}</p>
                             </div>
+                            <div className="footer-card">
+                                <div className="btn-update-app">
+                                    <button onClick={() => setUpdate(!update)}><FontAwesomeIcon icon={faPencilAlt} /> Modifier</button>
+                                </div>
+                                <div className="btn-update-app">
+                                    <button onClick={deleteProg}><FontAwesomeIcon icon={faTrashAlt} /> Supprimer</button>
+                                </div>
+                            </div>
                         </div>
                     )
                     
@@ -107,20 +119,25 @@ const UpdateDelete = ({ item }) => {
                 
                 {
                     update && 
-                    <div>
-                        <textarea
-                            defaultValue={item.content}
-                            onChange={(e) => setContentUpdate(e.target.value)}
-                        />
-                        <textarea
-                            defaultValue={item.wod}
-                            onChange={(e) => setWodUpdate(e.target.value)}
-                        />
+                    <div className="create">
                         <input
                             type="text"
                             defaultValue={item.name}
                             onChange={(e) => setNameUpdate(e.target.value)}
                         />
+                        <input
+                        type="number"
+                        defaultValue={item.time}
+                        onChange={(e) => setTimeUpdate(e.target.value)}
+                        />
+                        <textarea
+                                defaultValue={item.content}
+                                onChange={(e) => setContentUpdate(e.target.value)}
+                            />
+                        <textarea
+                                defaultValue={item.wod}
+                                onChange={(e) => setWodUpdate(e.target.value)}
+                            />
                         <button onClick={updateProg}>Modifier</button>
                     </div>
                 }

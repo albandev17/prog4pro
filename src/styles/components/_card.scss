@@ -1,7 +1,7 @@
 .container-app{
     max-width: 95%;
     margin: 5px auto;
-    padding: 10px;
+    padding: 2px 10px;
 
     .card-app{
         background: #ffffff;
@@ -20,26 +20,23 @@
                 .card-title-app::after{
                     content: '';
                     display: block;
-                    background: #440be081;
+                    background: rgb(3, 204, 135);
                     width: 35px;
                     height: 2px;
                     border-radius: 30px;
                     margin-top: 3px;
                 }
-                .btn-update-app button{
-                    margin: 0 5px;
-                    padding: 2px;
-                    border: none;
-                    background: none;
-                    color: #fb6107;
+                .btn-update-app{
+                    color: #ff5400;
                 }
+            }
         }
         .card-app-prog{
             span{
                 text-align: center;
-                font-size: 8px;
+                font-size: 10px;
                 color: #6c757d;
-                font-weight: bold;
+                font-weight: 100;
             }
             p{
                 margin: 10px 0 20px 0;
@@ -52,15 +49,22 @@
             justify-content: space-around;
             align-items: center;
             background: #eeecec;
-            color: #000000;
             text-align: center;
             padding-bottom: 5px;
             border-radius: 30px;
-            padding: 13px;
+            padding: 5px;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.336);
+            -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.336);
+            -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.336);
 
-                span{
-                    font-size: 10px;
-                }
+            .btn-update-app button{
+                margin: 0 7px;
+                padding: 2px;
+                border: none;
+                background: none;
+                font-size: 12px;
+                color: #078dfb;
+            }
         }
-    }
+
 }
