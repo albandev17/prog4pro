@@ -10,6 +10,24 @@ header{
     background: linear-gradient(90deg, rgba(2,116,190,1) 0%, rgba(118,61,251,1) 100%);
     padding-bottom: 10px;
 
+    .btn-create-app{
+        display: block;
+        width: 50%;
+        padding: 5px;
+        margin: 0 auto;
+        background: #ffffff;
+        color: #3c495c;
+        border: none;
+        border-radius: 20px;
+        font-size: 12px;
+        text-align: center;
+
+        span{
+            margin: 0 0 0 10px;
+            color: rgba(235, 70, 139);
+        }
+    }
+
     .header-banner{
         display: flex;
         justify-content: space-between;

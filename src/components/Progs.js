@@ -11,7 +11,6 @@ const Progs = () => {
         const progsDB = firebase.database().ref('progsDB');
 
         progsDB.on("value", (snapshot) => {
-            console.log(snapshot.val());
             let previousList = snapshot.val();
             let list = [];
             for(let id in previousList){
