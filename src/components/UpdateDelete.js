@@ -4,7 +4,7 @@ import { UidContext } from './UidContext';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faClock, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 toast.configure();
@@ -119,17 +119,19 @@ const UpdateDelete = ({ item }) => {
                 
                 {
                     update && 
-                    <div className="create">
-                        <input
-                            type="text"
-                            defaultValue={item.name}
-                            onChange={(e) => setNameUpdate(e.target.value)}
-                        />
-                        <input
-                        type="number"
-                        defaultValue={item.time}
-                        onChange={(e) => setTimeUpdate(e.target.value)}
-                        />
+                    <div className="update-delete">
+                        <div className="input-update-delete">
+                            <input
+                                type="text"
+                                defaultValue={item.name}
+                                onChange={(e) => setNameUpdate(e.target.value)}
+                            />
+                            <input
+                            type="number"
+                            defaultValue={item.time}
+                            onChange={(e) => setTimeUpdate(e.target.value)}
+                            />
+                        </div>
                         <textarea
                                 defaultValue={item.content}
                                 onChange={(e) => setContentUpdate(e.target.value)}
@@ -138,7 +140,7 @@ const UpdateDelete = ({ item }) => {
                                 defaultValue={item.wod}
                                 onChange={(e) => setWodUpdate(e.target.value)}
                             />
-                        <button onClick={updateProg}>Modifier</button>
+                        <button onClick={updateProg}>Modifier <span><FontAwesomeIcon icon={faArrowRight} /></span></button>
                     </div>
                 }
             </div>

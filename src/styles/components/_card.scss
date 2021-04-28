@@ -67,4 +67,52 @@
             }
         }
 
+    .update-delete{
+        background: #a5a5a5;
+        border: 1px solid rgb(231, 231, 231);
+        padding: 10px;
+        border-radius: 20px;
+        margin: 5px 0;
+
+        textarea{
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 20px;
+            border: 1px solid #e5e5e5;
+        }
+        input{
+            display: block;
+            width: 90%;
+            padding: 7px;
+            margin: 5px 2px;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+        }
+        .input-update-delete{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+        button{
+            display: block;
+            width: 30%;
+            padding: 5px;
+            margin: 0 auto;
+            background: #ffffff;
+            color: #3c495c;
+            border: none;
+            border-radius: 20px;
+            font-size: 12px;
+        
+            span{
+                margin: 0 0 0 10px;
+                color: rgba(235, 70, 139);
+            }
+        }
+    }
 }
