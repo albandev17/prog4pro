@@ -18,6 +18,7 @@ const UpdateDelete = ({ item }) => {
     const [nameUpdate, setNameUpdate] = useState(null);
     const [contentUpdate, setContentUpdate] = useState(null);
     const [wodUpdate, setWodUpdate] = useState(null);
+    const [cardioUpdate, setCardioUpdate] = useState(null);
     const [timeUpdate, setTimeUpdate] = useState(null);
 
     const uid = useContext(UidContext);
@@ -49,6 +50,11 @@ const UpdateDelete = ({ item }) => {
         if(wodUpdate !== null){
             prog.update({
                 wod: wodUpdate,
+            });
+        }
+        if(cardioUpdate !== null){
+            prog.update({
+                cardio: cardioUpdate,
             });
         }
         if(timeUpdate !== null){
@@ -105,18 +111,22 @@ const UpdateDelete = ({ item }) => {
                                 <div className="btn-update-app">
                                     <p><FontAwesomeIcon icon={faClock} /> {item.time} min</p>
                                 </div>
+                                
                             </div>
+                            
                             <div className="card-app-prog">
+                                <span>Cardio</span>
+                                    <p className="card-content-app">{item.cardio}</p>
                                 <span>Renforcement musculaire</span>
-                                <p className="card-content-app">{item.content}</p>
+                                    <p className="card-content-app">{item.content}</p>
                                 <span>W.O.D</span>
-                                <p className="card-wod-app">{item.wod}</p>
+                                    <p className="card-wod-app">{item.wod}</p>
                             </div>
                             <div className="footer-card">
-                                <div className="btn-update-app">
+                                <div className="btn-update">
                                     <button onClick={() => setUpdate(!update)}><FontAwesomeIcon icon={faPencilAlt} /> Modifier</button>
                                 </div>
-                                <div className="btn-update-app">
+                                <div className="btn-delete">
                                     <button onClick={deleteProg}><FontAwesomeIcon icon={faTrashAlt} /> Supprimer</button>
                                 </div>
                             </div>
@@ -140,6 +150,10 @@ const UpdateDelete = ({ item }) => {
                             onChange={(e) => setTimeUpdate(e.target.value)}
                             />
                         </div>
+                        <textarea
+                                defaultValue={item.cardio}
+                                onChange={(e) => setCardioUpdate(e.target.value)}
+                            />
                         <textarea
                                 defaultValue={item.content}
                                 onChange={(e) => setContentUpdate(e.target.value)}

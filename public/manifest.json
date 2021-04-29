@@ -1,0 +1,9 @@
+{
+    "name": "Prog4Pro",
+    "short_name": "P4P",
+    "start_url": "/public/index.html",
+    "display": "standalone",
+    "background_color": "white",
+    "theme_color": "white",
+    "orientation": "portrait-primary"
+}

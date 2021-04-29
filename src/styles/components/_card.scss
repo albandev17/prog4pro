@@ -8,6 +8,7 @@
         border: 1px solid rgb(231, 231, 231);
         padding: 10px;
         border-radius: 20px;
+        
 
         .card-button-app{
             display: flex;
@@ -17,6 +18,7 @@
                     margin: 0 0 20px 0;
                     color: #656666;
                 }
+
                 .card-title-app::after{
                     content: '';
                     display: block;
@@ -26,6 +28,11 @@
                     border-radius: 30px;
                     margin-top: 3px;
                 }
+                .card-title-right{
+                    margin: 0 0 20px 0;
+                    color: #078dfb;
+                }
+
                 .btn-update-app{
                     color: #ff5400;
                 }
@@ -57,14 +64,23 @@
             -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.336);
             -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.336);
 
-            .btn-update-app button{
+            .btn-update button{
                 cursor: pointer;
                 margin: 0 7px;
                 padding: 2px;
                 border: none;
                 background: none;
                 font-size: 12px;
-                color: #078dfb;
+                color: #18c209;
+            }
+            .btn-delete button{
+                cursor: pointer;
+                margin: 0 7px;
+                padding: 2px;
+                border: none;
+                background: none;
+                font-size: 12px;
+                color: #fb0707;
             }
         }
 

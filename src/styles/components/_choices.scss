@@ -1,0 +1,55 @@
+.custom-shape-divider-top-1619701549 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1619701549 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1619701549 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-top-1619701549 svg {
+        width: calc(100% + 1.3px);
+        height: 61px;
+    }
+}
+
+
+
+.page-choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(2,116,190,1) 0%, rgba(118,61,251,1) 100%);
+
+    .choices-prog{
+        width: 100%;
+
+        h3{
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        h5{
+            font-weight: lighter;
+        }
+
+        button{
+            margin: 30px auto;
+            width: 50%;
+        }
+    }
+}

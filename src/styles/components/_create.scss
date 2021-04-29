@@ -7,8 +7,8 @@
 
     .create-app{
 
-        width: 90%;
-        margin-top: 70px;
+        width: 95%;
+
 
         h1{
             text-align: center;
@@ -53,7 +53,7 @@
     display: block;
     width: 30%;
     padding: 5px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     background: #ffffff;
     color: #3c495c;
     border: none;
@@ -64,47 +64,13 @@
         color: rgba(235, 70, 139);
     }
 }
-.custom-shape-divider-top-1619625794 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
 
-.custom-shape-divider-top-1619625794 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-top-1619625794 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-}
-
-.custom-shape-divider-top-1619625794 .shape-fill {
-    fill: #FFFFFF;
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-    .custom-shape-divider-top-1619625794 svg {
-        width: calc(100% + 1.3px);
-        height: 19px;
-    }
-}
 .back-to-home{
     position: relative;
     bottom: 2px;
     background: linear-gradient(90deg, rgba(2,116,190,1) 0%, rgba(118,61,251,1) 100%);
     text-align: center;
     color: #FFFFFF;
-    padding-top: 0px;
+    padding: 20px;
+    font-weight: lighter;
 }

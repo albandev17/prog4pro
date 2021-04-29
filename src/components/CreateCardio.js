@@ -14,79 +14,68 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faHome } from "@fortawesome/free-solid-svg-icons";
 
+const CreateCardio = () => {
 
-
-toast.configure();
-
-const Create = () => {
-
-    const [name, setName] = useState('');
-    const [content, setContent] = useState('');
-    const [wod, setWod] = useState('');
-    const [cardio, setCardio] =useState('');
-    const [time, setTime] = useState('');
-
-    const [isSignedIn, setIsSignedIn] = useState(false);
-    const [uid, setUid] = useState(null);
-
-    // config user
-    const uiConfig = {
-        signInFlow: "popup",
-        signInOptions: [
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        ],
-        callbacks: {
-          signInSuccessWithAuthResult: () => false,
-        },
-      };
+        const [name, setName] = useState('');
+        const [cardio, setCardio] = useState('');
+        const [time, setTime] = useState('');
     
-      useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-          setIsSignedIn(!!user);
-          setUid(user.uid);
-        });
-      }, []);
-
-    // create todo
-    const createProg = () => {
-        const progsDB = firebase.database().ref("progsDB");
-        const prog = {
-            uid,
-            name,
-            content,
-            wod,
-            cardio,
-            time
-        };
-
-        //toastify settings
-        const notify = () => {
-            toast(`Séance ajouter`, {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
+        const [isSignedIn, setIsSignedIn] = useState(false);
+        const [uid, setUid] = useState(null);
+    
+        // config user
+        const uiConfig = {
+            signInFlow: "popup",
+            signInOptions: [
+              firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+              firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+              firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+            callbacks: {
+              signInSuccessWithAuthResult: () => false,
+            },
+          };
+        
+          useEffect(() => {
+            firebase.auth().onAuthStateChanged((user) => {
+              setIsSignedIn(!!user);
+              setUid(user.uid);
             });
-        };
-
-        notify();
-
-        progsDB.push(prog);
-
-        // reset form
-        setName('');
-        setContent('');
-        setWod('');
-        setCardio('');
-        setTime('')
-    }
-
+          }, []);
     
+        // create todo
+        const createProg = () => {
+            const progsDB = firebase.database().ref("progsDB");
+            const prog = {
+                uid,
+                name,
+                cardio,
+                time
+            };
+    
+            //toastify settings
+            const notify = () => {
+                toast(`Séance ajouter`, {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            };
+    
+            notify();
+    
+            progsDB.push(prog);
+    
+            // reset form
+            setName('');
+            setCardio('');
+            setTime('')
+        }
+
     return (
         <UidContext.Provider value={uid}>
             {isSignedIn ? (
@@ -108,7 +97,7 @@ const Create = () => {
                                 <div className="form-app">
                                     <div className="form-input-app">
                                         <input 
-                                            type="text"
+                                            type="datetime"
                                             placeholder="Date" 
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
@@ -123,17 +112,11 @@ const Create = () => {
                                     </div>
                                     <div className="form-textarea-app">
                                         <textarea
-                                            rows="10"
-                                            placeholder="Renforcement Musculaire"
-                                            value={content}
-                                            onChange={(e) => setContent(e.target.value)}  
-                                        />
-                                        <textarea
-                                            rows="10"
-                                            placeholder="Workout of the day"
-                                            value={wod}
-                                            onChange={(e) => setWod(e.target.value)}  
-                                        />
+                                            rows="20"
+                                            placeholder="Votre séance"
+                                            value={cardio}
+                                            onChange={(e) => setCardio(e.target.value)}  
+                                        /> 
                                     </div>
                                     <NavLink to="/">
                                         <button className="btn-create-app" onClick={createProg}>Créer <span><FontAwesomeIcon icon={faArrowRight} /></span></button>
@@ -147,7 +130,7 @@ const Create = () => {
             </>
             ) : (
                 <div className="login-page">
-                    <h1>React Crud</h1>
+                    <h1>Prog 4 Pro</h1>
                     <StyledFirebaseAuth
                     uiConfig={uiConfig}
                     firebaseAuth={firebase.auth()}
@@ -163,4 +146,4 @@ const Create = () => {
     );
 };
 
-export default Create;
+export default CreateCardio;
