@@ -1,12 +1,10 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+
 import Main from './components/Main';
 import Create from './components/Create';
 
-
-
 const App = () => {
-
 
   return (
     <Switch>

@@ -1,8 +1,11 @@
 import React, { useContext, useState } from 'react';
+
 import firebase from '../utils/firebaseConfig';
 import { UidContext } from './UidContext';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faClock, faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,6 +22,7 @@ const UpdateDelete = ({ item }) => {
 
     const uid = useContext(UidContext);
 
+    // user auth
     const authorCheck = () => {
         if (item.uid === uid) {
           return true;
@@ -28,6 +32,7 @@ const UpdateDelete = ({ item }) => {
       };
       authorCheck();
 
+    // update todo
     const updateProg = () => {
         let prog = firebase.database().ref("progsDB").child(item.id);
 
@@ -53,6 +58,7 @@ const UpdateDelete = ({ item }) => {
         }
         setUpdate(false);
 
+        // toastify settings
         const notifyUpdate = () => {
             toast.success(`Séance modifier`, {
                 position: "top-right",
@@ -66,9 +72,11 @@ const UpdateDelete = ({ item }) => {
         notifyUpdate();
     }
 
+    // delete todo
     const deleteProg = () => {
         let prog = firebase.database().ref('progsDB').child(item.id);
 
+        // toastify
         const notifyDelete = () => {
             toast.warning(`Séance supprimer`, {
                 position: "top-center",

@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import firebase from '../utils/firebaseConfig';
-import { UidContext } from './UidContext';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { StyledFirebaseAuth } from 'react-firebaseui';
 import { NavLink } from 'react-router-dom';
 
+
+import firebase from '../utils/firebaseConfig';
+import { UidContext } from './UidContext';
+import { StyledFirebaseAuth } from 'react-firebaseui';
+
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 toast.configure();
 
@@ -17,30 +22,31 @@ const Create = () => {
     const [content, setContent] = useState('');
     const [wod, setWod] = useState('');
     const [time, setTime] = useState('');
+
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [uid, setUid] = useState(null);
-  
+
+    // config user
     const uiConfig = {
-      signInFlow: "popup",
-      signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      ],
-      callbacks: {
-        signInSuccessWithAuthResult: () => false,
-      },
-    };
-  
-    useEffect(() => {
-      firebase.auth().onAuthStateChanged((user) => {
-        setIsSignedIn(!!user);
-        setUid(user.uid);
-      });
-    }, []);
+        signInFlow: "popup",
+        signInOptions: [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        ],
+        callbacks: {
+          signInSuccessWithAuthResult: () => false,
+        },
+      };
+    
+      useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+          setIsSignedIn(!!user);
+          setUid(user.uid);
+        });
+      }, []);
 
-
+    // create todo
     const createProg = () => {
         const progsDB = firebase.database().ref("progsDB");
         const prog = {
@@ -51,6 +57,7 @@ const Create = () => {
             time
         };
 
+        //toastify settings
         const notify = () => {
             toast(`Séance ajouter`, {
                 position: "top-right",
@@ -67,11 +74,13 @@ const Create = () => {
 
         progsDB.push(prog);
 
+        // reset form
         setName('');
         setContent('');
         setWod('');
         setTime('')
     }
+
     
     return (
         <UidContext.Provider value={uid}>
@@ -84,47 +93,49 @@ const Create = () => {
                         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="shape-fill"></path>
                     </svg>
                 </div>
-            <div className="create">
-                    <div className="create-app">
-                        <h1>Nouvelle séance</h1>
-                        <div className="form-app">
-                            <div className="form-input-app">
-                                <input 
-                                    type="text"
-                                    placeholder="Date" 
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                />
-                                <input 
-                                    type="number"
-                                    placeholder="Durée de la séance"
-                                    value={time}
-                                    min="1" max="10"
-                                    onChange={(e) => setTime(e.target.value)}
-                                />
-                            </div>
-                            <div className="form-textarea-app">
-                                <textarea
-                                    rows="10"
-                                    placeholder="Renforcement Musculaire"
-                                    value={content}
-                                    onChange={(e) => setContent(e.target.value)}  
-                                />
-                                <textarea
-                                    rows="10"
-                                    placeholder="Workout of the day"
-                                    value={wod}
-                                    onChange={(e) => setWod(e.target.value)}  
-                                />
-                            </div>
-                            <NavLink to="/">
-                                <button className="btn-create-app" onClick={createProg}>Créer <span><FontAwesomeIcon icon={faArrowRight} /></span></button>
-                            </NavLink>
 
-                        </div>
-                        
+                <div className="create">
+                        <div className="create-app">
+                            <h1>Nouvelle séance</h1>
+                            <div className="form-app">
+                                <div className="form-input-app">
+                                    <input 
+                                        type="text"
+                                        placeholder="Date" 
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
+                                    <input 
+                                        type="number"
+                                        placeholder="Durée de la séance"
+                                        value={time}
+                                        min="1" max="10"
+                                        onChange={(e) => setTime(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-textarea-app">
+                                    <textarea
+                                        rows="10"
+                                        placeholder="Renforcement Musculaire"
+                                        value={content}
+                                        onChange={(e) => setContent(e.target.value)}  
+                                    />
+                                    <textarea
+                                        rows="10"
+                                        placeholder="Workout of the day"
+                                        value={wod}
+                                        onChange={(e) => setWod(e.target.value)}  
+                                    />
+                                </div>
+                                <NavLink to="/">
+                                    <button className="btn-create-app" onClick={createProg}>Créer <span><FontAwesomeIcon icon={faArrowRight} /></span></button>
+                                </NavLink>
+
+                            </div>
+                            
+                    </div>
                 </div>
-            </div>
+
             </>
             ) : (
                 <div className="login-page">
@@ -135,11 +146,12 @@ const Create = () => {
                     />
                 </div>
             )}
+
             <NavLink to="/">
-                <h3 className="back-to-home">Revenir à l'accueil</h3>
+                <h5 className="back-to-home">Revenir à l'accueil</h5>
             </NavLink>
+
         </UidContext.Provider>
-        
     );
 };
 
