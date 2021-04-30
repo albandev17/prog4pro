@@ -2,8 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(2,116,190,1) 0%, rgba(118,61,251,1) 100%);
-    height: 100vh;
 
     .create-app{
 
@@ -12,8 +10,8 @@
 
         h1{
             text-align: center;
-            color: #FFFFFF;
-            margin-bottom: 20px;
+            color: #3c495c;
+            margin: 20px;
         }
 
         .form-input-app{
@@ -42,7 +40,6 @@
         width: 90%;
         padding: 10px;
         margin: 10px auto;
-        border: none;
         border-radius: 20px;
         border: 1px solid #e5e5e5;
     }
@@ -56,9 +53,11 @@
     margin: 0 auto 50px auto;
     background: #ffffff;
     color: #3c495c;
-    border: none;
+    border: 1px solid #e5e5e5;
     border-radius: 20px;
     font-size: 12px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     span{
         margin: 0 0 0 10px;
         color: rgba(235, 70, 139);
@@ -66,11 +65,9 @@
 }
 
 .back-to-home{
-    position: relative;
     bottom: 2px;
-    background: linear-gradient(90deg, rgba(2,116,190,1) 0%, rgba(118,61,251,1) 100%);
     text-align: center;
-    color: #FFFFFF;
+    color: #3c495c;
     padding: 20px;
-    font-weight: lighter;
+    font-weight: bold;
 }
