@@ -33,7 +33,7 @@ const ChoicesPage = () => {
                     </NavLink>
 
                     <NavLink to="/">
-                        <h5 className="back-to-home">Revenir à l'accueil</h5>
+                        <h5 className="back-to-home-choices">Revenir à l'accueil</h5>
                     </NavLink>
                 </div>
             </div>
