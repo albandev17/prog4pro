@@ -6,7 +6,7 @@ header{
 
     .btn-create-app{
         display: block;
-        width: 50%;
+        width: 60%;
         padding: 5px;
         margin: 0 auto;
         background: #ffffff;
@@ -85,6 +85,13 @@ header{
     .custom-shape-divider-bottom-1619529991 svg {
         width: calc(100% + 1.3px);
         height: 36px;
+    }
+}
+@media (min-width: 500px) {
+    header{
+        .btn-create-app{
+            width: 40%;
+        }
     }
 }
 // btn back to top

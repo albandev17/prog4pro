@@ -134,3 +134,15 @@
         }
     }
 }
+
+@media (min-width: 767px) {
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+
+        .container-app{
+            margin: 0;
+            padding: 20px 6px;
+        }
+    }
+}

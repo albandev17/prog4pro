@@ -115,11 +115,11 @@ const UpdateDelete = ({ item }) => {
                             </div>
                             
                             <div className="card-app-prog">
-                                <span>Cardio</span>
-                                    <p className="card-content-app">{item.cardio}</p>
-                                <span>Renforcement musculaire</span>
+
+                                    <p className="card-content-app">{item.cardio}</p>                       
+
                                     <p className="card-content-app">{item.content}</p>
-                                <span>W.O.D</span>
+
                                     <p className="card-wod-app">{item.wod}</p>
                             </div>
                             <div className="footer-card">
