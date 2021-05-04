@@ -20,11 +20,11 @@ toast.configure();
 
 const Create = () => {
 
-    const [name, setName] = useState('');
     const [content, setContent] = useState('');
     const [wod, setWod] = useState('');
     const [cardio, setCardio] =useState('');
     const [time, setTime] = useState('');
+    const [date, setDate] = useState(new Date().toLocaleDateString('FR'));
 
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [uid, setUid] = useState(null);
@@ -54,11 +54,11 @@ const Create = () => {
         const progsDB = firebase.database().ref("progsDB");
         const prog = {
             uid,
-            name,
             content,
             wod,
             cardio,
-            time
+            time,
+            date,
         };
 
         //toastify settings
@@ -79,7 +79,6 @@ const Create = () => {
         progsDB.push(prog);
 
         // reset form
-        setName('');
         setContent('');
         setWod('');
         setCardio('');
@@ -139,9 +138,8 @@ const Create = () => {
                                     <div className="form-input-app">
                                         <input 
                                             type="text"
-                                            placeholder="Date" 
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
                                         />
                                         <input 
                                             type="number"

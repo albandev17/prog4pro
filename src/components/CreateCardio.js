@@ -16,7 +16,7 @@ import { faArrowRight, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
 const CreateCardio = () => {
 
-        const [name, setName] = useState('');
+        const [date, setDate] = useState(new Date().toLocaleDateString('FR'));
         const [cardio, setCardio] = useState('');
         const [time, setTime] = useState('');
     
@@ -48,7 +48,7 @@ const CreateCardio = () => {
             const progsDB = firebase.database().ref("progsDB");
             const prog = {
                 uid,
-                name,
+                date,
                 cardio,
                 time
             };
@@ -71,7 +71,6 @@ const CreateCardio = () => {
             progsDB.push(prog);
     
             // reset form
-            setName('');
             setCardio('');
             setTime('')
         }
@@ -130,9 +129,8 @@ const CreateCardio = () => {
                                     <div className="form-input-app">
                                         <input 
                                             type="datetime"
-                                            placeholder="Date" 
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
                                         />
                                         <input 
                                             type="number"

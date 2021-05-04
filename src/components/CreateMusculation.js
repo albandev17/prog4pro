@@ -16,7 +16,7 @@ import { faArrowRight, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
 const CreateMusculation = () => {
 
-        const [name, setName] = useState('');
+        const [date, setDate] = useState(new Date().toLocaleDateString('FR'));
         const [content, setContent] = useState('');
         const [time, setTime] = useState('');
     
@@ -48,7 +48,7 @@ const CreateMusculation = () => {
             const progsDB = firebase.database().ref("progsDB");
             const prog = {
                 uid,
-                name,
+                date,
                 content,
                 time
             };
@@ -71,7 +71,6 @@ const CreateMusculation = () => {
             progsDB.push(prog);
     
             // reset form
-            setName('');
             setContent('');
             setTime('')
         }
@@ -129,9 +128,8 @@ const CreateMusculation = () => {
                                     <div className="form-input-app">
                                         <input 
                                             type="datetime"
-                                            placeholder="Date" 
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
                                         />
                                         <input 
                                             type="number"

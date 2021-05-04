@@ -107,7 +107,7 @@ const UpdateDelete = ({ item }) => {
                     authorCheck() && (
                         <div className="card-app">
                             <div className="card-button-app">
-                                <p className="card-title-app">{item.name}</p>
+                                <p className="card-title-app">{item.date}</p>
                                 <div className="btn-update-app">
                                     <p><FontAwesomeIcon icon={faClock} /> {item.time} min</p>
                                 </div>
