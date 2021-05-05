@@ -1,32 +1,5 @@
 .login-page{
-    .custom-shape-divider-top-1619631078 {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-    }
     
-    .custom-shape-divider-top-1619631078 svg {
-        position: relative;
-        display: block;
-        width: calc(100% + 1.3px);
-        height: 150px;
-        transform: rotateY(180deg);
-    }
-    
-    .custom-shape-divider-top-1619631078 .shape-fill {
-        fill: #FAFAFF;
-    }
-    
-    /** For mobile devices **/
-    @media (max-width: 767px) {
-        .custom-shape-divider-top-1619631078 svg {
-            width: calc(100% + 1.3px);
-            height: 30px;
-        }
-    }
     h1{
         text-align: center;
         margin: 20px 0;

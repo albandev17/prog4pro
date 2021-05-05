@@ -27,7 +27,6 @@ const CreateCardio = () => {
         const uiConfig = {
             signInFlow: "popup",
             signInOptions: [
-              firebase.auth.GoogleAuthProvider.PROVIDER_ID,
               firebase.auth.FacebookAuthProvider.PROVIDER_ID,
               firebase.auth.EmailAuthProvider.PROVIDER_ID,
             ],
@@ -160,7 +159,7 @@ const CreateCardio = () => {
             </>
             ) : (
                 <div className="login-page">
-                    <h1>Prog 4 Pro</h1>
+                    <h1>TrainBook</h1>
                     <StyledFirebaseAuth
                     uiConfig={uiConfig}
                     firebaseAuth={firebase.auth()}
