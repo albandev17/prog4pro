@@ -28,7 +28,6 @@ const Main = () => {
     const uiConfig = {
       signInFlow: "popup",
       signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
@@ -113,18 +112,11 @@ const Main = () => {
                     </>
                 ) : (
                     <div className="login-page">
-                        <h1>Prog 4 pro</h1>
-                        <div className="sign-in-page">
-                            <StyledFirebaseAuth
-                                uiConfig={uiConfig}
-                                firebaseAuth={firebase.auth()}
-                            />   
-                        </div>
-                        <div className="text-login">
-                            <p>Prog4Pro est l'application la plus simple et efficace pour remplacer votre carnet d'entrainement papier.</p>
-                            <br />
-                            <p>Vous souhaitez suivre vos performances au quotidien, Prog4Pro est l'application mobile idéale si vous pratiquez une METHODE ou un PROGRAMME de musculation / Cross-training. <br/> Vous pourrez ainsi consulter vos performances et obtenir un suivi précis afin de progresser à coup sûr!</p>
-                        </div>
+                        <h1>TrainBook</h1>
+                        <StyledFirebaseAuth
+                        uiConfig={uiConfig}
+                        firebaseAuth={firebase.auth()}
+                        />
                     </div>
                 )}
             </div>
